@@ -2,7 +2,7 @@
 //  Created by Adam Stragner
 //
 
-import EssentialsProtocols
+import EssentialProtocols
 
 public extension RawRepresentable where RawValue: HexadecimalDescribable {
     var hexadecimalDescription: String { rawValue.hexadecimalDescription }

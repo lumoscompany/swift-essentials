@@ -2,7 +2,7 @@
 //  Created by Adam Stragner
 //
 
-import EssentialsProtocols
+import EssentialProtocols
 
 public extension BytesConvertible where Self: FixedWidthInteger {
     func bytes(with representation: EndiannessRepresentation) -> [UInt8] {

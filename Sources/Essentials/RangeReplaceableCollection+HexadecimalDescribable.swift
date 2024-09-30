@@ -2,7 +2,7 @@
 //  Created by Adam Stragner
 //
 
-import EssentialsProtocols
+import EssentialProtocols
 
 public extension RangeReplaceableCollection where Element: HexadecimalDescribable {
     var hexadecimalDescription: String {

@@ -2,7 +2,7 @@
 //  Created by Adam Stragner
 //
 
-import EssentialsProtocols
+import EssentialProtocols
 
 public extension BinaryDescribable where Self: FixedWidthInteger {
     var binaryDescription: String {

@@ -2,7 +2,7 @@
 //  Created by Adam Stragner
 //
 
-import EssentialsProtocols
+import EssentialProtocols
 
 public extension HexadecimalDescribable where Self: FixedWidthInteger {
     var hexadecimalDescription: String {
