@@ -1,0 +1,13 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+
+/.build
+/.swiftpm
+/Packages
+
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+
+.netrc
