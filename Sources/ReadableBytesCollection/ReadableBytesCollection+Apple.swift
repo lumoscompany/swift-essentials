@@ -2,7 +2,9 @@
 //  Created by Adam Stragner
 //
 
-#if !os(Linux)
+import EssentialsExtensions
+
+#if IS_APPLE
 
 import Foundation
 
@@ -21,16 +23,6 @@ public extension ReadableBytesCollection {
 
     func append(contentsOf bytes: any ContiguousBytes) {
         storage.append(contentsOf: bytes.concreteBytes)
-    }
-}
-
-private extension ContiguousBytes {
-    var concreteBytes: [UInt8] {
-        var bytes = [UInt8]()
-        let _ = withUnsafeBytes({ buffer in
-            bytes.append(contentsOf: buffer)
-        })
-        return bytes
     }
 }
 

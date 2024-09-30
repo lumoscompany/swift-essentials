@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+let IS_APPLE: SwiftSetting = .define("IS_APPLE", .when(platforms: [.macOS, .iOS]))
+
 let package = Package(
     name: "swift-essentials",
     platforms: [
@@ -22,7 +24,8 @@ let package = Package(
                 "EssentialsExtensions",
                 "EssentialsProtocols",
             ],
-            path: "Sources/Essentials"
+            path: "Sources/Essentials",
+            swiftSettings: [IS_APPLE]
         ),
         .target(
             name: "ReadableBytesCollection",
@@ -30,15 +33,18 @@ let package = Package(
                 "EssentialsExtensions",
                 "EssentialsProtocols",
             ],
-            path: "Sources/ReadableBytesCollection"
+            path: "Sources/ReadableBytesCollection",
+            swiftSettings: [IS_APPLE]
         ),
         .target(
             name: "EssentialsExtensions",
-            path: "Sources/EssentialsExtensions"
+            path: "Sources/EssentialsExtensions",
+            swiftSettings: [IS_APPLE]
         ),
         .target(
             name: "EssentialsProtocols",
-            path: "Sources/EssentialsProtocols"
+            path: "Sources/EssentialsProtocols",
+            swiftSettings: [IS_APPLE]
         ),
     ]
 )
