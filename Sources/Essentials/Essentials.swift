@@ -2,7 +2,8 @@
 //  Created by Adam Stragner
 //
 
-@_exported import EssentialsExtensions
-@_exported import EssentialsProtocols
+@_exported import EssentialExtensions
+@_exported import EssentialProtocols
+@_exported import EssentialTypes
 
 @_exported import ReadableBytesCollection

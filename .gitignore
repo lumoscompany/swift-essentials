@@ -3,9 +3,9 @@
 .LSOverride
 
 /.build
-/.swiftpm
 /Packages
 
+!xcshareddata/
 /*.xcodeproj
 xcuserdata/
 DerivedData/

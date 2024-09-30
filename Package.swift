@@ -21,8 +21,9 @@ let package = Package(
             name: "Essentials",
             dependencies: [
                 "ReadableBytesCollection",
-                "EssentialsExtensions",
-                "EssentialsProtocols",
+                "EssentialExtensions",
+                "EssentialProtocols",
+                "EssentialTypes",
             ],
             path: "Sources/Essentials",
             swiftSettings: [IS_APPLE]
@@ -30,20 +31,25 @@ let package = Package(
         .target(
             name: "ReadableBytesCollection",
             dependencies: [
-                "EssentialsExtensions",
-                "EssentialsProtocols",
+                "EssentialExtensions",
+                "EssentialProtocols",
             ],
             path: "Sources/ReadableBytesCollection",
             swiftSettings: [IS_APPLE]
         ),
         .target(
-            name: "EssentialsExtensions",
-            path: "Sources/EssentialsExtensions",
+            name: "EssentialExtensions",
+            path: "Sources/EssentialExtensions",
             swiftSettings: [IS_APPLE]
         ),
         .target(
-            name: "EssentialsProtocols",
-            path: "Sources/EssentialsProtocols",
+            name: "EssentialProtocols",
+            path: "Sources/EssentialProtocols",
+            swiftSettings: [IS_APPLE]
+        ),
+        .target(
+            name: "EssentialTypes",
+            path: "Sources/EssentialTypes",
             swiftSettings: [IS_APPLE]
         ),
     ]

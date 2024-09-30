@@ -2,7 +2,7 @@
 //  Created by Adam Stragner
 //
 
-import EssentialsExtensions
+import EssentialExtensions
 
 // MARK: - ReadableBytesCollection
 
