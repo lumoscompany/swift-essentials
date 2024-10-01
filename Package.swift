@@ -12,23 +12,32 @@ let package = Package(
         .iOS("16.4"),
     ],
     products: [
-        .library(name: "Essentials", targets: ["Essentials", "ReadableByteCollection"]),
+        .library(name: "Essentials", targets: ["Essentials"]),
         .library(name: "ReadableByteCollection", targets: ["ReadableByteCollection"]),
     ],
     dependencies: [],
     targets: [
         .target(
+            name: "Essentials",
+            dependencies: [
+                .byName(name: "EssentialsImplementation"),
+                .byName(name: "ReadableByteCollection"),
+            ],
+            path: "Sources/Essentials",
+            swiftSettings: [IS_APPLE]
+        ),
+        .target(
             name: "ReadableByteCollection",
             dependencies: [
-                "Essentials",
+                "EssentialsImplementation",
             ],
             path: "Sources/ReadableByteCollection",
             swiftSettings: [IS_APPLE]
         ),
         .target(
-            name: "Essentials",
+            name: "EssentialsImplementation",
             dependencies: [],
-            path: "Sources/Essentials",
+            path: "Sources/EssentialsImplementation",
             swiftSettings: [IS_APPLE]
         ),
     ]
