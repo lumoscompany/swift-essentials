@@ -12,44 +12,23 @@ let package = Package(
         .iOS("16.4"),
     ],
     products: [
-        .library(name: "Essentials", targets: ["Essentials"]),
-        .library(name: "ReadableBytesCollection", targets: ["ReadableBytesCollection"]),
+        .library(name: "Essentials", targets: ["Essentials", "ReadableByteCollection"]),
+        .library(name: "ReadableByteCollection", targets: ["ReadableByteCollection"]),
     ],
     dependencies: [],
     targets: [
         .target(
+            name: "ReadableByteCollection",
+            dependencies: [
+                "Essentials",
+            ],
+            path: "Sources/ReadableByteCollection",
+            swiftSettings: [IS_APPLE]
+        ),
+        .target(
             name: "Essentials",
-            dependencies: [
-                "ReadableBytesCollection",
-                "EssentialExtensions",
-                "EssentialProtocols",
-                "EssentialTypes",
-            ],
+            dependencies: [],
             path: "Sources/Essentials",
-            swiftSettings: [IS_APPLE]
-        ),
-        .target(
-            name: "ReadableBytesCollection",
-            dependencies: [
-                "EssentialExtensions",
-                "EssentialProtocols",
-            ],
-            path: "Sources/ReadableBytesCollection",
-            swiftSettings: [IS_APPLE]
-        ),
-        .target(
-            name: "EssentialExtensions",
-            path: "Sources/EssentialExtensions",
-            swiftSettings: [IS_APPLE]
-        ),
-        .target(
-            name: "EssentialProtocols",
-            path: "Sources/EssentialProtocols",
-            swiftSettings: [IS_APPLE]
-        ),
-        .target(
-            name: "EssentialTypes",
-            path: "Sources/EssentialTypes",
             swiftSettings: [IS_APPLE]
         ),
     ]

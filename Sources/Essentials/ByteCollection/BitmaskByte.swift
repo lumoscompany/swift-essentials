@@ -5,17 +5,17 @@
 // MARK: - BitmaskByte
 
 public protocol BitmaskByte {
-    associatedtype BitmaskKeys: BitmaskByteMaskKey
+    associatedtype BitmaskKeys: BitmaskKey
 
-    var rawValue: UInt8 { get set }
+    var rawValue: Byte { get set }
 }
 
-// MARK: - BitmaskByteMaskKey
+// MARK: - BitmaskKey
 
-public protocol BitmaskByteMaskKey: RawRepresentable where RawValue == UInt8 {}
+public protocol BitmaskKey: RawRepresentable where RawValue == Byte {}
 
 public extension BitmaskByte {
-    subscript(mask key: BitmaskKeys) -> UInt8 {
+    subscript(mask key: BitmaskKeys) -> Byte {
         get { rawValue & key.rawValue }
         mutating set {
             rawValue = (rawValue & ~key.rawValue) | newValue

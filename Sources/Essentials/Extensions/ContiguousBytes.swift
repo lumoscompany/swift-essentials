@@ -4,7 +4,7 @@
 
 #if IS_APPLE
 
-import Foundation
+import Foundation.NSData
 
 public extension ContiguousBytes {
     var concreteBytes: [UInt8] {

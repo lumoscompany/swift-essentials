@@ -2,19 +2,19 @@
 //  Created by Adam Stragner
 //
 
-// MARK: - OptionsByte
+// MARK: - OptionByte
 
-public protocol OptionsByte {
-    associatedtype OptionKeys: OptionsByteBitKey
+public protocol OptionByte {
+    associatedtype OptionKeys: OptionKey
 
-    var rawValue: UInt8 { get set }
+    var rawValue: Byte { get set }
 }
 
-// MARK: - OptionsByteBitKey
+// MARK: - OptionKey
 
-public protocol OptionsByteBitKey: RawRepresentable where RawValue == UInt8 {}
+public protocol OptionKey: RawRepresentable where RawValue == Byte {}
 
-public extension OptionsByte {
+public extension OptionByte {
     subscript(option key: OptionKeys) -> Bool {
         get { (rawValue & (1 << key.rawValue)) != 0 }
         mutating set {

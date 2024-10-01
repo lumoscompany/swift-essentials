@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ReadableBytesCollection"
-               BuildableName = "ReadableBytesCollection"
-               BlueprintName = "ReadableBytesCollection"
+               BlueprintIdentifier = "ReadableByteCollection"
+               BuildableName = "ReadableByteCollection"
+               BlueprintName = "ReadableByteCollection"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ReadableBytesCollection"
-            BuildableName = "ReadableBytesCollection"
-            BlueprintName = "ReadableBytesCollection"
+            BlueprintIdentifier = "ReadableByteCollection"
+            BuildableName = "ReadableByteCollection"
+            BlueprintName = "ReadableByteCollection"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
