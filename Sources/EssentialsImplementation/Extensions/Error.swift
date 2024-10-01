@@ -3,7 +3,7 @@
 //
 
 public extension Error {
-    func throwif(_ condition: Bool) throws {
+    func throwif(_ condition: Bool) throws (Self) {
         guard condition
         else {
             return
