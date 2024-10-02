@@ -4,3 +4,4 @@
 
 @_exported import EssentialsImplementation
 @_exported import ReadableByteCollection
+@_exported import SecureByteCollection

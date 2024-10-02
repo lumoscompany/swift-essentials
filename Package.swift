@@ -14,6 +14,7 @@ let package = Package(
     products: [
         .library(name: "Essentials", targets: ["Essentials"]),
         .library(name: "ReadableByteCollection", targets: ["ReadableByteCollection"]),
+        .library(name: "SecureByteCollection", targets: ["SecureByteCollection"]),
     ],
     dependencies: [],
     targets: [
@@ -22,8 +23,15 @@ let package = Package(
             dependencies: [
                 .byName(name: "EssentialsImplementation"),
                 .byName(name: "ReadableByteCollection"),
+                .byName(name: "SecureByteCollection"),
             ],
             path: "Sources/Essentials",
+            swiftSettings: [IS_APPLE]
+        ),
+        .target(
+            name: "EssentialsImplementation",
+            dependencies: [],
+            path: "Sources/EssentialsImplementation",
             swiftSettings: [IS_APPLE]
         ),
         .target(
@@ -35,9 +43,11 @@ let package = Package(
             swiftSettings: [IS_APPLE]
         ),
         .target(
-            name: "EssentialsImplementation",
-            dependencies: [],
-            path: "Sources/EssentialsImplementation",
+            name: "SecureByteCollection",
+            dependencies: [
+                "EssentialsImplementation",
+            ],
+            path: "Sources/SecureByteCollection",
             swiftSettings: [IS_APPLE]
         ),
     ]
