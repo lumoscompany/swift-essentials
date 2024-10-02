@@ -6,10 +6,10 @@ import EssentialsImplementation
 
 // MARK: - SecureByteCollection
 
-final class SecureByteCollection {
+public final class SecureByteCollection {
     // MARK: Lifecycle
 
-    init(_ contiguousBytes: any ContiguousBytes) {
+    public init(_ contiguousBytes: any ContiguousBytes) {
         let byteCollection = contiguousBytes.concreteBytes
 
         self.count = byteCollection.count
@@ -27,14 +27,14 @@ final class SecureByteCollection {
         pointer.deallocate()
     }
 
-    // MARK: Internal
+    // MARK: Public
 
-    func perform<T>(with body: (Data) throws -> T) rethrows -> T {
+    public func perform<T>(with body: (Data) throws -> T) rethrows -> T {
         let data = Data(bytesNoCopy: pointer, count: count, deallocator: .none)
         return try body(data)
     }
 
-    func perform<T>(with body: (Data) async throws -> T) async rethrows -> T {
+    public func perform<T>(with body: (Data) async throws -> T) async rethrows -> T {
         let data = Data(bytesNoCopy: pointer, count: count, deallocator: .none)
         return try await body(data)
     }
@@ -49,10 +49,10 @@ final class SecureByteCollection {
 
 extension SecureByteCollection: @unchecked Sendable {}
 
-// MARK: Hashable
+// MARK: Equatable
 
-extension SecureByteCollection: Hashable {
-    static func == (lhs: SecureByteCollection, rhs: SecureByteCollection) -> Bool {
+extension SecureByteCollection: Equatable {
+    public static func == (lhs: SecureByteCollection, rhs: SecureByteCollection) -> Bool {
         var result = false
         lhs.perform(with: { lhs in
             rhs.perform(with: { rhs in
@@ -61,8 +61,12 @@ extension SecureByteCollection: Hashable {
         })
         return result
     }
+}
 
-    func hash(into hasher: inout Hasher) {
+// MARK: Hashable
+
+extension SecureByteCollection: Hashable {
+    public func hash(into hasher: inout Hasher) {
         perform(with: {
             hasher.combine($0)
         })
@@ -85,7 +89,7 @@ extension SecureByteCollection: CustomDebugStringConvertible {
     }
 }
 
-extension String.StringInterpolation {
+public extension String.StringInterpolation {
     mutating func appendInterpolation(_ value: SecureByteCollection) {
         appendInterpolation(value.description)
     }
