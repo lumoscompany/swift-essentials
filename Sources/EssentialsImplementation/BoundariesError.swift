@@ -19,10 +19,17 @@ public struct BoundariesError: Error {
 }
 
 public extension BoundariesError {
-    static func check(_ index: Int, in collection: any Collection) throws (Self) {
-        guard index < collection.count
+    static func check(index: Int, in collection: any Collection) throws (Self) {
+        guard index <= collection.count
         else {
             throw BoundariesError(index, in: collection)
+        }
+    }
+
+    static func check(count: Int, in collection: any Collection) throws (Self) {
+        guard count <= collection.count
+        else {
+            throw BoundariesError(count - 1, in: collection)
         }
     }
 }

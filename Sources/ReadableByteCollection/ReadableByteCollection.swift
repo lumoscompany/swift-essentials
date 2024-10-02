@@ -35,7 +35,7 @@ public final class ReadableByteCollection: RawRepresentable {
 
     @discardableResult
     public func get(_ count: Int) throws (BoundariesError) -> ByteCollection {
-        try BoundariesError.check(count, in: storage)
+        try BoundariesError.check(count: count, in: storage)
 
         let elements = storage[0 ..< count]
         return Array(elements)
@@ -48,7 +48,7 @@ public final class ReadableByteCollection: RawRepresentable {
 
     @discardableResult
     public func read(_ count: Int) throws (BoundariesError) -> ByteCollection {
-        try BoundariesError.check(count, in: storage)
+        try BoundariesError.check(count: count, in: storage)
 
         let elements = storage[0 ..< count]
         storage = Array(storage.dropFirst(count))
