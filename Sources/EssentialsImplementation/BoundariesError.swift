@@ -4,7 +4,7 @@
 
 // MARK: - BoundariesError
 
-public struct BoundariesError: Error {
+public struct BoundariesError {
     // MARK: Lifecycle
 
     public init(_ index: Int, in collection: any Collection) {
@@ -34,14 +34,10 @@ public extension BoundariesError {
     }
 }
 
-#if IS_APPLE
-
-import Foundation.NSError
+// MARK: LocalizedError
 
 extension BoundariesError: LocalizedError {
     public var errorDescription: String? {
         "Couldn't read element with index '\(index)'; it's out of boundaries of count '\(count)'"
     }
 }
-
-#endif

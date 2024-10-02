@@ -33,6 +33,6 @@ extension UInt8: ExpressibleByHexadecimalString {
     }
 }
 
-typealias HexadecimalStringRepresentable =
+public typealias HexadecimalStringRepresentable =
     HexadecimalStringConvertible &
     ExpressibleByHexadecimalString

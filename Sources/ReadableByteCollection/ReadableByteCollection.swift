@@ -6,11 +6,15 @@ import EssentialsImplementation
 
 // MARK: - ReadableByteCollection
 
-public final class ReadableByteCollection: RawRepresentable {
+public struct ReadableByteCollection: RawRepresentable {
     // MARK: Lifecycle
 
-    public convenience init(_ value: ByteCollection = ByteCollection()) {
-        self.init(rawValue: value)
+    public init() {
+        self.init(rawValue: ByteCollection())
+    }
+
+    public init(_ bytes: any ContiguousBytes) {
+        self.init(rawValue: bytes.concreteBytes)
     }
 
     public init(rawValue: ByteCollection) {
@@ -23,10 +27,6 @@ public final class ReadableByteCollection: RawRepresentable {
 
     public var isEmpty: Bool { storage.isEmpty }
     public var count: Int { storage.count }
-
-    public func append(contentsOf collection: ReadableByteCollection) {
-        storage.append(contentsOf: collection.rawValue)
-    }
 
     @discardableResult
     public func get() throws (BoundariesError) -> UInt8 {
@@ -42,12 +42,12 @@ public final class ReadableByteCollection: RawRepresentable {
     }
 
     @discardableResult
-    public func read() throws (BoundariesError) -> UInt8 {
+    public mutating func read() throws (BoundariesError) -> UInt8 {
         try read(1)[0]
     }
 
     @discardableResult
-    public func read(_ count: Int) throws (BoundariesError) -> ByteCollection {
+    public mutating func read(_ count: Int) throws (BoundariesError) -> ByteCollection {
         try BoundariesError.check(count: count, in: storage)
 
         let elements = storage[0 ..< count]
@@ -55,16 +55,64 @@ public final class ReadableByteCollection: RawRepresentable {
         return Array(elements)
     }
 
-    // MARK: Internal
+    public mutating func append(_ byte: Byte) {
+        storage.append(byte)
+    }
 
-    var storage: ByteCollection
+    public mutating func append(contentsOf collection: ReadableByteCollection) {
+        storage.append(contentsOf: collection.rawValue)
+    }
+
+    public mutating func append(contentsOf bytes: any ContiguousBytes) {
+        storage.append(contentsOf: bytes.concreteBytes)
+    }
+
+    // MARK: Private
+
+    private var storage: ByteCollection
 }
 
 // MARK: ExpressibleByArrayLiteral
 
 extension ReadableByteCollection: ExpressibleByArrayLiteral {
-    public convenience init(arrayLiteral elements: Byte...) {
+    public init(arrayLiteral elements: Byte...) {
         self.init(elements)
+    }
+}
+
+// MARK: ExpressibleByStringLiteral
+
+extension ReadableByteCollection: ExpressibleByStringLiteral {
+    public init(stringLiteral value: StringLiteralType) {
+        guard let rawValue = ByteCollection(hexadecimalString: value)
+        else {
+            fatalError("Invalid string literal: \(value)")
+        }
+        self.init(rawValue: rawValue)
+    }
+}
+
+// MARK: HexadecimalStringRepresentable
+
+extension ReadableByteCollection: HexadecimalStringRepresentable {
+    public var hexadecimalString: String { rawValue.hexadecimalString }
+
+    public init?(hexadecimalString: String) {
+        guard let rawValue = ByteCollection(hexadecimalString: hexadecimalString)
+        else {
+            return nil
+        }
+        self.init(rawValue: rawValue)
+    }
+}
+
+// MARK: LosslessStringConvertible
+
+extension ReadableByteCollection: LosslessStringConvertible {
+    public var description: String { hexadecimalString }
+
+    public init?(_ description: String) {
+        self.init(hexadecimalString: description)
     }
 }
 
@@ -83,19 +131,3 @@ extension ReadableByteCollection: Hashable {
         hasher.combine(storage)
     }
 }
-
-#if IS_APPLE
-
-import Foundation.NSData
-
-public extension ReadableByteCollection {
-    convenience init(_ bytes: any ContiguousBytes = ByteCollection()) {
-        self.init(bytes.concreteBytes)
-    }
-
-    func append(contentsOf bytes: any ContiguousBytes) {
-        storage.append(contentsOf: bytes.concreteBytes)
-    }
-}
-
-#endif

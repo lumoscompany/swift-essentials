@@ -2,23 +2,23 @@
 //  Created by Adam Stragner
 //
 
-public extension String {
+public extension StringProtocol {
     subscript(index: Int) -> SubSequence {
         return self[index ..< index + 1]
     }
 
     func substring(fromIndex: Int) -> SubSequence {
-        return self[min(fromIndex, count) ..< count]
+        return self[Swift.min(fromIndex, count) ..< count]
     }
 
     func substring(toIndex: Int) -> SubSequence {
-        return self[0 ..< max(0, toIndex)]
+        return self[0 ..< Swift.max(0, toIndex)]
     }
 
     subscript(range: Range<Int>) -> SubSequence {
         let range = Range(uncheckedBounds: (
-            lower: max(0, min(count, range.lowerBound)),
-            upper: min(count, max(0, range.upperBound))
+            lower: Swift.max(0, Swift.min(count, range.lowerBound)),
+            upper: Swift.min(count, Swift.max(0, range.upperBound))
         ))
 
         let start = index(startIndex, offsetBy: range.lowerBound)

@@ -4,7 +4,7 @@
 
 public extension ExpressibleByHexadecimalString where Self: ByteCollectionConvertible {
     var hexadecimalString: String {
-        byteCollection(with: .big).map({ $0.hexadecimalString }).joined(separator: "")
+        byteCollection(with: .big).map(\.hexadecimalString).joined(separator: "")
     }
 }
 
