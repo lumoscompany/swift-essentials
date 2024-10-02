@@ -131,3 +131,7 @@ extension ReadableByteCollection: Hashable {
         hasher.combine(storage)
     }
 }
+
+// MARK: Sendable
+
+extension ReadableByteCollection: Sendable {}
