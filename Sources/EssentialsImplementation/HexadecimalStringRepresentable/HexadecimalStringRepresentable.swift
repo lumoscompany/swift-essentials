@@ -11,7 +11,10 @@ public protocol HexadecimalStringConvertible {
 // MARK: - UInt8 + HexadecimalStringConvertible
 
 extension UInt8: HexadecimalStringConvertible {
-    public var hexadecimalString: String { String(self, radix: 16, uppercase: false) }
+    public var hexadecimalString: String {
+        let value = String(self, radix: 16, uppercase: false)
+        return value.count == 1 ? "0\(value)" : value
+    }
 }
 
 // MARK: - ExpressibleByHexadecimalString
