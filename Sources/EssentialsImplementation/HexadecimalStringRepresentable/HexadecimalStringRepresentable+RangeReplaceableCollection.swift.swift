@@ -4,7 +4,11 @@
 
 public extension RangeReplaceableCollection where Element: HexadecimalStringConvertible {
     var hexadecimalString: String {
-        map(\.hexadecimalString).joined(separator: " ")
+        hexadecimalString(separator: "")
+    }
+
+    func hexadecimalString(separator: String = " ") -> String {
+        map(\.hexadecimalString).joined(separator: separator)
     }
 }
 

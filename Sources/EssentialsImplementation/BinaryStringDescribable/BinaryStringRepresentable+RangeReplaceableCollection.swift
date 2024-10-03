@@ -4,6 +4,10 @@
 
 public extension RangeReplaceableCollection where Element == BinaryStringConvertible {
     var binaryString: String {
-        map(\.binaryString).joined(separator: " ")
+        binaryString(separator: "")
+    }
+
+    func binaryString(separator: String = " ") -> String {
+        map(\.binaryString).joined(separator: separator)
     }
 }
