@@ -7,7 +7,7 @@
 public final actor DispatchActor: Actor {
     // MARK: Lifecycle
 
-    init(_ queue: DispatchQueue) {
+    public init(_ queue: DispatchQueue) {
         self.executor = DispatchExecutor(queue)
     }
 
