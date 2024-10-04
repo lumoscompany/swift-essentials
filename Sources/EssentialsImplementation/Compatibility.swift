@@ -35,3 +35,7 @@ public typealias Date = Foundation.Date
 /// Availble on WIndows / Linux / Darwin
 /// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/Date.swift#L29
 public typealias TimeInterval = Foundation.TimeInterval
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/apple/swift-corelibs-libdispatch
+public typealias DispatchQueue = Foundation.DispatchQueue
