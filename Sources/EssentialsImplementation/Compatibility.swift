@@ -23,3 +23,7 @@ public typealias URL = Foundation.URL
 /// Availble on WIndows / Linux / Darwin
 /// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/URL/URLComponents.swift
 public typealias URLComponents = Foundation.URLComponents
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/URL/URLComponents.swift
+public typealias URLQueryItem = Foundation.URLQueryItem
