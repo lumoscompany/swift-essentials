@@ -27,3 +27,11 @@ public typealias URLComponents = Foundation.URLComponents
 /// Availble on WIndows / Linux / Darwin
 /// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/URL/URLComponents.swift
 public typealias URLQueryItem = Foundation.URLQueryItem
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/Date.swift#L29
+public typealias Date = Foundation.Date
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/Date.swift#L29
+public typealias TimeInterval = Foundation.TimeInterval
