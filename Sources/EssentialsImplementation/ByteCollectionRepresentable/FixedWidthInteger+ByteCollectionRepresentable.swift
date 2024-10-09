@@ -38,6 +38,10 @@ public extension ExpressibleByByteCollection where Self: FixedWidthInteger {
     }
 }
 
+// MARK: - Int + ByteCollectionRepresentable
+
+extension Int: ByteCollectionRepresentable {}
+
 // MARK: - UInt8 + ByteCollectionRepresentable
 
 extension UInt8: ByteCollectionRepresentable {}
