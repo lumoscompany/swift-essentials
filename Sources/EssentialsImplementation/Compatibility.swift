@@ -39,3 +39,15 @@ public typealias TimeInterval = Foundation.TimeInterval
 /// Availble on WIndows / Linux / Darwin
 /// https://github.com/apple/swift-corelibs-libdispatch
 public typealias DispatchQueue = Foundation.DispatchQueue
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/FileManager/SwiftFileManager.swift
+public typealias FileManager = Foundation.FileManager
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/JSON/JSONDecoder.swift
+public typealias JSONDecoder = Foundation.JSONDecoder
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/JSON/JSONEncoder.swift
+public typealias JSONEncoder = Foundation.JSONEncoder
