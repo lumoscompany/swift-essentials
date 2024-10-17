@@ -51,3 +51,15 @@ public typealias JSONDecoder = Foundation.JSONDecoder
 /// Availble on WIndows / Linux / Darwin
 /// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/JSON/JSONEncoder.swift
 public typealias JSONEncoder = Foundation.JSONEncoder
+
+/// Availble on WIndows / Linux / Darwin
+/// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/UUID.swift#L19
+public typealias UUID = Foundation.UUID
+
+#if canImport(FoundationNetworking)
+/// Availble on WIndows / Linux
+// https://github.com/swiftlang/swift-corelibs-foundation/blob/main/Sources/FoundationNetworking/URLSession/URLSession.swift
+public typealias URLSession = FoundationNetworking.URLSession
+#else
+public typealias URLSession = Foundation.URLSession
+#endif
