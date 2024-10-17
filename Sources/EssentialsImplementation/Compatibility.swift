@@ -60,6 +60,20 @@ public typealias UUID = Foundation.UUID
 /// Availble on WIndows / Linux
 // https://github.com/swiftlang/swift-corelibs-foundation/blob/main/Sources/FoundationNetworking/URLSession/URLSession.swift
 public typealias URLSession = FoundationNetworking.URLSession
+
+/// Availble on WIndows / Linux
+/// https://github.com/swiftlang/swift-corelibs-foundation/blob/main/Sources/FoundationNetworking/URLResponse.swift
+public typealias URLResponse = FoundationNetworking.URLResponse
+public typealias HTTPURLResponse = FoundationNetworking.HTTPURLResponse
+
+/// Availble on WIndows / Linux
+/// https://github.com/swiftlang/swift-corelibs-foundation/blob/main/Sources/FoundationNetworking/URLRequest.swift
+public typealias URLRequest = FoundationNetworking.URLRequest
 #else
 public typealias URLSession = Foundation.URLSession
+
+public typealias URLResponse = Foundation.URLResponse
+public typealias HTTPURLResponse = Foundation.HTTPURLResponse
+
+public typealias URLRequest = Foundation.URLRequest
 #endif
