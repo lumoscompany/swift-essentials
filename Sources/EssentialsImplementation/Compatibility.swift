@@ -3,6 +3,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// Availble on WIndows / Linux / Darwin
 /// https://github.com/swiftlang/swift-foundation/blob/main/Sources/FoundationEssentials/Data/Data.swift
